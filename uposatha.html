@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style type="text/css">
+.spTab{height:50px;margin-left:3%;padding:0;}
+.spTabLink{float:left;padding:10px 10px 3px 10px;color:#3dd3e9;background:#fff;border:1px solid #fff;border-bottom:none;border-top-left-radius:3px;border-top-right-radius:3px;transition:0.3s;font-size:12pt;}
+.spTabLink.active{padding-bottom:8px;color:#3bc000;border:1px solid #8c8b89;border-bottom:none;} 
+.spTabContainer{margin-top:-10px;padding:0;border:1px solid #8c8b89;border-radius:5px;}
+.spTabcontent{display:none;}
+</style>
+<div class="spTab">
+  <span class="spTabLink" id="spDefault" onclick="openspTab(event, 'spTab1')">Splendid Moons Calender</span>
+</div>
+<div class="spTabContainer">
+  <div class="spTabcontent" id="spTab1">
+    <div class="splendidmoons" id="splendidmoons"></div>
+  </div>
+</div>
+<script crossorigin="anonymous" integrity="sha256-siFczlgw4jULnUICcdm9gjQPZkw/YPDqhQ9+nAOScE4=" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script>var SplendidMoons = {config: {showLogo: true,showSiteTitle: true}};</script>
+<script crossorigin="anonymous" src="http://splendidmoons.github.io/splendidmoons.min.js"></script>
+<script>
+  function openspTab(evt, spTabName) {
+  var calender, spTabcontent, spTabLink;
+  spTabcontent = document.getElementsByClassName("spTabcontent");
+  for (calender = 0; calender < spTabcontent.length; calender++) {
+  spTabcontent[calender].style.display = "none";
+  }
+  spTabLink = document.getElementsByClassName("spTabLink");
+  for (calender = 0; calender < spTabLink.length; calender++) {
+  spTabLink[calender].className = spTabLink[calender].className.replace(" active", "");
+  }
+  document.getElementById(spTabName).style.display = "block";
+  evt.currentTarget.className += " active";
+  }
+  document.getElementById("spDefault").click();
+</script>
+<br>
+<br>
